@@ -18,7 +18,7 @@ int kadane(int a[], int n)
 int main() {
 	//code
 	int i,t,n,*a,back_sum,back_max,still_max,sum,max,f;
-	cin>>t;
+	cin>>t;           //enter number of test cases
 	while(t--)
 	{
 	    f=0;
@@ -27,11 +27,11 @@ int main() {
 	    back_max=INT_MIN;
 	    still_max=INT_MIN;
 	    sum=0;
-	    cin>>n;
+	    cin>>n;         // enter size of array
 	    a=new int[n];
 	    for(i=0;i<n;i++)
 	    {
-	        cin>>a[i];
+	        cin>>a[i];        // enter values of array
 	        sum+=a[i];
 	        max=max>a[i]?max:a[i];
 	        if(a[i]>=0&&f==0)
