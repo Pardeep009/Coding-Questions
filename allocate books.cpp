@@ -31,7 +31,6 @@ There are 2 number of students. Books can be distributed in following fashion :
 
 Of the 3 cases, Option 3 has the minimum pages = 113. 
 */
-#include<bits/stdc++.h>
 bool check(vector<int> v,int mid,int m)
 {
     int c=1,l=v.size(),sum=mid,i;
