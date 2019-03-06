@@ -1,4 +1,7 @@
 /*
+
+https://www.interviewbit.com/problems/allocate-books/
+
 N number of books are given. 
 The ith book has Pi number of pages. 
 You have to allocate books to M number of students so that maximum number of pages alloted to a student is minimum. A book will be allocated to exactly one student. Each student has to be allocated at least one book. Allotment should be in contiguous order, for example: A student cannot be allocated book 1 and book 3, skipping book 2.
