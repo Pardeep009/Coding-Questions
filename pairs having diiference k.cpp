@@ -30,7 +30,7 @@ int pairs(int k, vector<int> v)
     while(i<size)
     {
         find=k+v[i];
-        l=0;
+        l=i+1;
         r=size-1;
         while(l<=r)
         {
