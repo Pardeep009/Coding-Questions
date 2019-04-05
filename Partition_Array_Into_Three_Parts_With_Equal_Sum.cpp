@@ -40,3 +40,33 @@ public:
         return (c==0);
     }
 };
+/*
+Unoredered Map solution
+class Solution {
+public:
+    bool canThreePartsEqualSum(vector<int>& v) 
+    {
+        unordered_map<int,int> um;
+        unordered_map<int,int>::iterator it;
+        int size=v.size(),sum=0,i;
+        for(i=0;i<size;i++)
+        {
+            sum+=v[i];
+            um[sum]=i;
+        }
+        sum=0;
+        for(i=0;i<size;i++)
+        {
+            sum+=v[i];
+            it=um.find(sum*2);
+            if(it!=um.end()&&it->second>i)
+            {
+                it=um.find(sum*3);
+                if(it!=um.end()&&it->second==size-1)
+                    return true;
+            }
+        }
+        return false;
+    }
+};
+*/
