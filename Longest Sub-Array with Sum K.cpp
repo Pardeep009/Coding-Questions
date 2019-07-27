@@ -24,7 +24,7 @@ int main() {
 	        {
 	            max = max > (i-map[sum-k]) ? max : (i-map[sum-k]);        // if present check its index and update max variable
 	        }
-	        if(map.find(sum)==map.end())               // if sum-k not present then insert it
+	        if(map.find(sum)==map.end())               // if sum not present then insert it
 	            map[sum] = i;
 	    }
 	    cout<<max<<endl;                // longest sub array length
