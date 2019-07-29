@@ -1,3 +1,13 @@
+/*
+	Given an array containing N integers and an integer K. Task is to find the length of the longest Sub-Array with sum of
+	the elements equal to the given value K.
+	
+	Input : arr[] = { 10, 5, 2, 7, 1, 9 }, 
+	K = 15
+	Output : 4
+	The longest sub-array is {5, 2, 7, 1}.
+	
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
