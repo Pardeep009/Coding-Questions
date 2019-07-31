@@ -21,7 +21,7 @@ int Solution::firstMissingPositive(vector<int> &arr) {
     int size = arr.size(),i=0,j=0;
     // if(size == 1)
     // return arr[0] == 1 ? 2 : 1;
-    while(i<size)
+    while(i<size)           // shift negative elements to left side and positive elements to right side
     {
         if(arr[i]<=0)
         {
@@ -32,23 +32,23 @@ int Solution::firstMissingPositive(vector<int> &arr) {
         }
         i++;
     }
-    if(j==size && arr[j-1]<=0)
+    if(j==size && arr[j-1]<=0)             // if all are negative elements,then answer is 1
     {
         return 1;
     }
-    int index,start=j;
+    int index,start=j;                // start is pointing to first positive element in array
     for(;j<size;j++)
     {
-        index = abs(arr[j])-1;
+        index = abs(arr[j])-1;              // mark index for visited positive values at their respective indexes as in sorted array
         if(index+start<size)
         {
-            if(arr[index+start]>0)
+            if(arr[index+start]>0)          // if already marked(duplicate case),no need to mark again
             arr[index+start] *=-1;
         }
     }
     for(j=start;j<size;j++)
     {
-        if(arr[j]>0)
+        if(arr[j]>0)                  // start from first positive element,check each index,if positive means this index value isn't visited,answer is found
         return j-start+1;
     }
     return j-start+1;
