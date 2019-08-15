@@ -63,3 +63,39 @@ int findDist(Node* root, int a, int b)     // called from main
     int d2 = dist(LCA,b);
     return d1+d2;
 }
+  /*                                    // queue based solution,for finding distance of a and b from LCA
+     queue<Node*> q;
+    q.push(LCA);
+    int level=0;
+    int ans=0;
+    int f1=1,f2=1;
+    while(q.size() && f1|f2)
+    {
+        int size = q.size();
+        for(int i=0;i<size;i++)
+        {
+            Node *temp = q.front();
+            q.pop();
+            if(temp->data == a)
+            {
+                ans+=level;
+                f1=0;
+            }
+            if(temp->data == b)
+            {
+                ans+=level;
+                f2=0;
+            }
+            if(temp->left)
+            {
+                q.push(temp->left);
+            }
+            if(temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+        level++;
+    }
+    return ans;
+  */
