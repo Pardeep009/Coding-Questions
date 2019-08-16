@@ -69,18 +69,16 @@ void inorder(Node*root,queue<node*>&q){
     }
  }
  /*          // recursive approach
-  void DLL(Node *root,Node **head_ref)
+  void DLL(Node *root,Node **head_ref,Node* &temp)
   {
-      static Node *temp=NULL;
       if(root == NULL)
       return;
 
-      DLL(root->left,head_ref);
+      DLL(root->left,head_ref,temp);
 
       if(*head_ref == NULL)
       {
           *head_ref = root;
-          temp = NULL;
       }
       else
       {
@@ -88,13 +86,14 @@ void inorder(Node*root,queue<node*>&q){
           root->left = temp;
       }
       temp = root;
-      DLL(root->right,head_ref);
+      
+      DLL(root->right,head_ref,temp);
 
   }
   void bToDLL(Node *root, Node **head_ref)
   {
       // your code here
       Node *tail_ref=NULL;
-      DLL(root,head_ref);
+      DLL(root,head_ref,tail_ref);
   }
  */
