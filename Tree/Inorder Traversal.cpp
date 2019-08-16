@@ -15,25 +15,20 @@
 vector<int> Solution::inorderTraversal(TreeNode* A) {
     vector<int> res;
     stack<TreeNode*> stk;
-    stk.push(A);
-    TreeNode *temp;
-    while(stk.size())
+    TreeNode *prev=A;
+    while(stk.size() || prev)
     {
-        temp = stk.top();
-        if(temp->left)
+        if(prev)
         {
-            stk.push(temp->left);
-            temp->left = NULL;
+            stk.push(prev);
+            prev = prev->left;
         }
         else
         {
+            prev = stk.top();
             stk.pop();
-            res.push_back(temp->val);
-            if(temp->right)
-            {
-                stk.push(temp->right);
-                temp->right = NULL;
-            }
+            res.push_back(prev->val);
+            prev = prev->right;
         }
     }
     return res;
