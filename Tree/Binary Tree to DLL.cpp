@@ -35,7 +35,7 @@
     
 */
 void inorder(Node*root,queue<node*>&q){
-  if(root!=NULL)
+  if(root)
   {
     inorder(root->left,q);
     q.push(root);
@@ -51,7 +51,7 @@ void inorder(Node*root,queue<node*>&q){
       queue<node*>q;
       inorder(root,q);
       *head_ref=q.front();
-      Node*t;
+      Node* t=NULL;
       while(!q.empty())
       {
         t=q.front();
