@@ -46,11 +46,11 @@ void inorder(Node*root,queue<node*>&q){
  void bToDLL(Node *root, Node **head_ref)
  {
     // your code here
-    if(root!=NULL)
+    if(root)
     {
-      queue<node*>q;
+      queue<node*> q;
       inorder(root,q);
-      *head_ref=q.front();
+      *head_ref = q.front();
       Node* t=NULL;
       while(!q.empty())
       {
