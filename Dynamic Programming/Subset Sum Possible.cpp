@@ -1,16 +1,34 @@
-// C++ program for coin change problem. 
-#include<bits/stdc++.h> 
+/*
 
-using namespace std; 
+   Given a set of numbers, check whether it can be partitioned into two subsets such that the sum of elements
+   in both subsets is same or not.
+   
+	Example:
+	Input:
+	2
+	4
+	1 5 11 5
+	3
+	1 3 5 
+
+	Output:
+	YES
+	NO
+
+	Explanation:
+	Testcase 1: There exists two subsets such that {1, 5, 5} and {11}.
+  Testcase 2: No combinatioin is possible.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
 
 bool count( int S[], int m, int n )
 { 
 	int i, j; 
-  
+	
 	bool table[n + 1][m]; 
 	
-	// Fill the enteries for 0 
-	// value case (n = 0) 
 	for (i = 0; i < m; i++) 
 		table[0][i] = true; 
 
@@ -21,10 +39,10 @@ bool count( int S[], int m, int n )
 	{ 
 		for (j = 0; j < m; j++) 
 		{ 
-			// Count of solutions including S[j] 
+			// solution possible by including S[j] 
 			x = (i-S[j] >= 0 && j>=1) ? table[i - S[j]][j-1] : false; 
 
-			// Count of solutions excluding S[j] 
+			// solution possible by excluding S[j] 
 			y = (j >= 1) ? table[i][j - 1] : false; 
 
 			// total count 
@@ -34,12 +52,30 @@ bool count( int S[], int m, int n )
 	return table[n][m - 1]; 
 } 
 
-// Driver Code 
-int main() 
-{ 
-	int arr[] = {1,2,3,9}; 
-	int m = sizeof(arr)/sizeof(arr[0]); 
-	int n = 5; 
-	cout << count(arr, m, n);
-	return 0; 
-}  
+int main() {
+	//code
+	int t,n;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int a[n];
+	    int sum = 0;
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        sum+=a[i];
+	    }
+	    if(sum%2)
+	    {
+	        cout<<"NO"<<endl;
+	        continue;
+	    }
+	    sort(a,a+n);
+	    if(count(a,n,sum/2))
+	    cout<<"YES"<<endl;
+	    else
+	    cout<<"NO"<<endl;
+	}
+	return 0;
+}
