@@ -35,7 +35,8 @@ int maxProfit(int profit[],int weight[],int n,int capacity)
     {
         for(j=1;j<=n;j++)
         {
-            x = i-weight[j] >=0 ? profit[j] + dp[i-weight[j]][j-1] : 0 ;
+            x = i-weight[j] >=0 ? profit[j] + dp[i-weight[j]][j-1] : 0 ;     // without duplicates
+// 	    x = i-weight[j] >=0 ? profit[j] + dp[i-weight[j]][j-1] : 0 ;     // with duplicates
             y = dp[i][j-1] ;
             dp[i][j] = max(x,y);
         }
