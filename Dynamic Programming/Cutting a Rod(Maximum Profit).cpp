@@ -1,11 +1,5 @@
-/*
-
-*/
-// C++ program for cutting rods(profit) problem. 
-#include<bits/stdc++.h> 
-
-using namespace std; 
-
+#include <bits/stdc++.h>
+using namespace std;
 int maxprofit( int S[],int n )
 { 
 	int i, j; 
@@ -14,13 +8,13 @@ int maxprofit( int S[],int n )
 	// is constructed in bottom up 
 	// manner using the base case 0 
 	// value case (n = 0) 
-	int table[100][100]={0};
+	int table[n+1][n+1]={0};
 	memset(table,0,sizeof(table));
 	
 	// Fill the enteries for 0 
 	// value case (n = 0) 
 	for (i=1;i<=n;i++) 
-		table[i][0] = S[i-1]; 
+		table[i][0] = S[i]; 
 
 	// Fill rest of the table entries 
 	// in bottom up manner 
@@ -47,14 +41,18 @@ int maxprofit( int S[],int n )
 		} 
 	} 
 	return table[n][n]; 
-} 
-
-// Driver Code 
-int main() 
-{ 
-	int arr[] = {1,5,8,9,10,17,17,20}; 
-// 	int m = sizeof(arr)/sizeof(arr[0]); 
-	int n = 8; 
-	cout << maxprofit(arr,n);
-	return 0; 
-} 
+}
+int main() {
+	//code
+	int t,n;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int price[n+1];
+	    for(int i=1;i<=n;i++)
+	    cin>>price[i];
+	    cout<<maxprofit(price,n)<<endl;
+	}
+	return 0;
+}
