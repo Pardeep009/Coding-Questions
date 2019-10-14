@@ -4,6 +4,8 @@
   
 */
 
+/*package whatever //do not write package name here */
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -17,18 +19,19 @@ class GFG {
         str.setCharAt(j,ch);
         
     }
-    static void printCombinations(StringBuilder str,int start,int end)
+    static void printCombinations(StringBuilder str,int start,int end,ArrayList<String> arr)
     {
         if(start==end)
         {
-            System.out.print(str + " ");
+            arr.add(str.toString());
+            // System.out.print(str + " ");
             return;
         }
         int i;
         for(i=start;i<end;i++)
         {
             swapChars(str,start,i);
-            printCombinations(str,start+1,end);
+            printCombinations(str,start+1,end,arr);
             swapChars(str,start,i);
         }
         
@@ -43,7 +46,13 @@ class GFG {
 		    t--;
 		    String s = sc.next();
 		    StringBuilder str = new StringBuilder(s);
-		    printCombinations(str,0,str.length());
+		    ArrayList<String> arr = new ArrayList<String>();
+		    printCombinations(str,0,str.length(),arr);
+		    Collections.sort(arr);
+		    for(int i=0;i<arr.size();i++)
+		    {
+		        System.out.print(arr.get(i) + " ");
+		    }
 		    System.out.println();
 		}
 	}
