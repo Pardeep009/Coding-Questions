@@ -58,9 +58,14 @@ void MaxActivities(Activitiy arr[], int n)
   
 int main() 
 { 
-    Activitiy arr[] = {{5, 9}, {1, 2}, {3, 4}, {0, 6}, 
-                                       {5, 7}, {8, 9}}; 
-    int n = sizeof(arr)/sizeof(arr[0]); 
+    int n;
+    cout<<"Enter Activities Number"<<endl;
+    cin>>n;
+    Activitiy arr[n];
+    for(int i=0;i<n;i++)
+    {
+      cin>>arr[i].start>>arr[i].finish;
+    }
     MaxActivities(arr, n); 
     return 0; 
 } 
