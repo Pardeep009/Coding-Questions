@@ -15,24 +15,18 @@
 using namespace std; 
   
 // Function to generate all binary strings 
-void generateAllBinaryStrings(int n, string s, int i) 
+void generateBinaryStrings(int n, string s, int i) 
 { 
     if (i == n) { 
         cout<<s<<endl; 
         return; 
     } 
-  
-    // First assign "0" at ith position 
-    // and try for all other permutations 
-    // for remaining positions 
+ 
     s[i] = 0; 
-    generateAllBinaryStrings(n, s, i + 1); 
+    generateBinaryStrings(n, s, i + 1); 
   
-    // And then assign "1" at ith position 
-    // and try for all other permutations 
-    // for remaining positions 
     s[i] = 1; 
-    generateAllBinaryStrings(n, s, i + 1); 
+    generateBinaryStrings(n, s, i + 1); 
 } 
   
 int main() 
@@ -41,8 +35,7 @@ int main()
     cin>>n;
     string s(n); 
   
-    // Print all binary strings 
-    generateAllBinaryStrings(n, arr, 0); 
+    generateBinaryStrings(n, arr, 0); 
   
     return 0; 
 } 
