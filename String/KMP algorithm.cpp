@@ -2,53 +2,55 @@
 using namespace std;
 int main()
 {
-    string txt="AABAACAADAABAABA";
-    string path="AABA";
-    int *infm = new int[path.length()+1];
-    int j=0;
-    for(int i=2;i<path.length()+1;i++)
+    string txt = "AABAACAADAABAABA";
+    string path = "AABA";
+    int size1 = txt.size();
+    int size2 = path.size();
+    if(size1 == 0 || size2 == 0)
     {
-        if(path[i-1]==path[j])
+        cout<<"error : one of the string is empty"<<endl;
+    }
+    int ans = -1;
+    vector<int> infm(size2,0);
+    int j=0,i;
+    for(i=1;i<size2;i++)
+    {
+        if(path[i] == path[j])
         {
             infm[i] = infm[i-1]+1;
             j++;
         }
-        else
-        {
+        else {
             j=0;
         }
     }
-    j=-1;
-    for(int i=0;i<txt.length();)
+    j=0;
+    for(i=0;i<size1;)
     {
-        if(txt[i]==path[j+1])
+        if(txt[i] == path[j])
         {
-            j++;
             i++;
+            j++;
         }
-        else
+        else 
         {
-            if(infm[j+1]==0)
+            if(j==0)
             {
-                j=-1;
                 i++;
             }
-            else
-            {
-                j=infm[j+1]-1;
+            else {
+                j = infm[j-1];
             }
         }
-        if(j==path.length()-1)
+        if(j == size2)
         {
-            cout<<"starting at "<<i-path.length()<<endl;
-            if(infm[j+1]==0)
-            {
-                j=-1;
-            }
-            else
-            {
-                j=infm[j+1]-1;
-            }
+            ans = i - size2;
+            j = infm[j-1];
+            cout<<"starting at "<<ans<<endl;
         }
+    }
+    if(ans == -1)
+    {
+        cout<<"No Match Found"<<endl;
     }
 }
